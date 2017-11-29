@@ -1,0 +1,16 @@
+addons:
+  apt:
+    packages:
+    - tree
+
+script: true
+  - tree public  
+
+deploy:
+  provider: firebase
+  project: meet-dashboard 
+  token:
+    secure: "izZC60tO6aHslWzSQGY9ROjDBZ+t0DEzjoMvEucGR+VBnuVWeVvJqJEAr2xQq7+ceBFxIkWlCwDS52GLl5c607ddEzcZlx2ti/HdLIg5HBhIR1L5teLMCxPhIJMWnESGL2DE2BbRL9/rR0kISqEGXCR7pHnpsiSXiuiRxmIqbXm6ghaupJdpnzZoSsjk36Rfy3gvJDoz/PjISe7LZNJfRp5ouktN/jrLrsf+k707Ar0ezpYuk47fabw5OT6k0bfrvFBLHeVSS7uDUU5bI3QNMniUDLMHaexXepw0IceTnu5IG6GruWNjm1gcLSX3pbbxsOmxqBriuD422cLrrSMj6a/Lp0Ig0mwPz8Lxf6qAleCEXOV1XdvoM+BBivG4Cohxm4301duuWry1okDHcwabq4Udp0Sot1UmfLZ3Os/aj9Wi0f89v4F+e3i3KYae+/Gzkj4WCQA75dzxrN4WiBXcbXVvchb3VA1D9DzlnORVPUVgTMEZS1j+kn3GtA4BaousADcj+/kXELqbDrATKxPqvjTl3mLj60QsqJyao/fNUK37zoh7kQ5SSvmvemcpnrF9uRA6h02qmR4oAFBPiBALK4VB55ffSpG+tgRGcUvMaL2gb8KYImIg3YVUmS88hhIhz5Hud6m4cfxv1UyFblmKINkIgYicMol6QxHB5A/Xx+A="
+  on:
+    branch: master
+  skip_cleanup: true
