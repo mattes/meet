@@ -178,7 +178,7 @@ function updateResources() {
       ViewAttached($(e.target).parent("li").data("calendar"));
     })
   }).catch(function(e){
-    alert(e)
+    console.log(e)
   });
 }
 
