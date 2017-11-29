@@ -18,6 +18,10 @@ html, body {
   margin-top: 48%;
 }
 
+.timer #date {
+  white-space: nowrap;
+}
+
 .timer p {
   margin: 0;
   font-weight: bold;
