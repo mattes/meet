@@ -10,4 +10,8 @@ Meet shows upcoming events from Google Calendar Resources (like conference rooms
   * [ ] Find solution for 4k background videos
 
   
+## Docs
+
+  * https://developers.google.com/api-client-library/javascript/reference/referencedocs
+  * https://developers.google.com/admin-sdk/directory/v1/reference/resources/calendars
 
