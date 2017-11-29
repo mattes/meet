@@ -1,0 +1,167 @@
+html, body {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#video-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  z-index: 40;
+}
+
+.timer {
+  margin-top: 48%;
+}
+
+.timer p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 2.7em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 1px 1px 4px #000;
+  line-height: 1.5em;
+}
+
+.footer {
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  font-size: 10px;
+}
+
+.right {
+  padding-right: 40px;
+}
+
+.main {
+  z-index: 60;
+  position: absolute;
+  width: 100%;
+}
+
+.bar {
+  position: absolute;
+  z-index: 70;
+  bottom: 40px;
+  left: 40px;
+}
+
+.events {
+  margin-top: 30%;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.events .list-group-item {
+  cursor: pointer;
+}
+
+.events .list-group-item:hover {
+  background-color: #ECF0F1;
+}
+
+.events .action .icon {
+  padding-right: 10px;  
+  font-size: 0.8em;
+}
+
+.events .action .title {
+  font-size: 1.4em;
+}
+
+.events .event .time {
+  display: block;
+  float: left;
+  width: 140px;
+  padding-top: 11px;
+  font-size: 1em;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.events .event .title {
+  display: block;
+  font-size: 1.5em;
+  width: 80%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.events .active {
+  width: 106%;
+  margin-left: -3%;
+  background-color: #16A085;
+  color: #ECF0F1;
+  border: 0;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.events .active:hover {
+  background-color: #1ABC9C;
+}
+
+.events .next {
+  background-color: #34495E;
+  color: #ECF0F1;
+  /* box-shadow: 2px 2px 5px rgba(0,0,0,0.5); */
+  border: 0;
+}
+
+.events .next:hover {
+  background-color: #2C3E50;
+}
+
+.settings {
+  position: absolute;
+  z-index: 70;
+  width: 500px;
+  bottom: 100px;
+  left: 40px;
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.resources .list-group-item {
+  background: #34495E;
+  border: 1px solid #34495E;
+  color: #ECF0F1;
+  cursor: pointer;
+}
+
+.resources .list-group-item:hover  {
+  background: #2C3E50;
+  border: 1px solid #2C3E50; 
+}
+
+.resources {
+  margin: 0px;
+}
+
+
+.resources .name {
+  font-size: 1.5em;
+  line-height: 1.3em;
+  margin: 0;
+}
+
+.resources .description {
+  font-size: 1.1em;
+  line-height: 1.4em;
+  margin: 0;
+  color: #BDC3C7;
+  padding-left: 5px;
+}
+
+.resources .id {
+  font-size: 0.7em;
+  line-height: 2em;
+  margin: 0;
+  color: #7F8C8D;
+  padding-left: 5px;
+}
