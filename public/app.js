@@ -3,6 +3,7 @@ var API_KEY = 'AIzaSyCm1GUOwQ8clxPoTkWFV03FKqSizLdetLU';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest", "https://www.googleapis.com/discovery/v1/apis/admin/directory_v1/rest"];
 var SCOPES = "https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/admin.directory.resource.calendar.readonly";
 var UPDATE_EVENTS_INTERVAL = 5000;
+var PLAY_4K_VIDEOS = false;
 
 var attachBtn = $("#authorize-button");
 var disconnectBtn = $("#signout-button");
@@ -87,36 +88,51 @@ function init() {
   gapi.load('client:auth2', initClient);
 }
 
-
 function initVideoBackground() {
-  // load videos and keep updating them
-  $.getJSON("videos.json").success(function(j){
-    // flatten assets
-    assets = []
-    j.forEach(function(v){
-      assets.push(v.assets)
-    })
-    assets = [].concat.apply([], assets);
-
-    var r = assets[Math.floor(Math.random()*assets.length)];
-    videoBackground.attr("src", r.url);
-
-    videoBackground.on("ended", function(e){
-      var r = assets[Math.floor(Math.random()*assets.length)];
-      videoBackground.attr("src", r.url);
+  if(PLAY_4K_VIDEOS) {
+    $.getJSON("videos4k.json").success(function(j){
+      assets = []
+      j.assets.forEach(function(v){
+        assets.push(v["url-4K-SDR"])
+      })
+      startVideoBackground(assets)
     })
 
-    videoBackground.on("error", function(e){
-      var r = assets[Math.floor(Math.random()*assets.length)];
-      videoBackground.attr("src", r.url);
+  } else {
+    $.getJSON("videos.json").success(function(j){
+      assets = []
+      j.forEach(function(v){
+        v.assets.forEach(function(k){
+          assets.push(k.url)
+        })
+      })
+      startVideoBackground(assets)
     })
+  }
+}
 
-    // force reset every 30 mins
-    setInterval(function(){
-      var r = assets[Math.floor(Math.random()*assets.length)];
-      videoBackground.attr("src", r.url);
-    }, 1000 * 60 * 30);
+function startVideoBackground(urls) {
+  var r = urls[Math.floor(Math.random()*urls.length)];
+  videoBackground.attr("src", r);
+
+  videoBackground.on("ended", function(e){
+    var r = urls[Math.floor(Math.random()*urls.length)];
+    videoBackground.attr("src", r);
   })
+
+  videoBackground.on("error", function(e){
+    console.log(e.target.error)
+    if(e.target.error.code != 4) { // DEMUXER_ERROR_NO_SUPPORTED_STREAMS
+      var r = urls[Math.floor(Math.random()*urls.length)];
+      videoBackground.attr("src", r);
+    }
+  })
+
+  // force reset every 30 mins
+  setInterval(function(){
+    var r = urls[Math.floor(Math.random()*urls.length)];
+    videoBackground.attr("src", r);
+  }, 1000 * 60 * 30);
 }
 
 
