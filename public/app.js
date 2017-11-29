@@ -105,6 +105,17 @@ function initVideoBackground() {
       var r = assets[Math.floor(Math.random()*assets.length)];
       videoBackground.attr("src", r.url);
     })
+
+    videoBackground.on("error", function(e){
+      var r = assets[Math.floor(Math.random()*assets.length)];
+      videoBackground.attr("src", r.url);
+    })
+
+    // force reset every 30 mins
+    setInterval(function(){
+      var r = assets[Math.floor(Math.random()*assets.length)];
+      videoBackground.attr("src", r.url);
+    }, 1000 * 60 * 30);
   })
 }
 
