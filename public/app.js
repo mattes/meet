@@ -122,14 +122,15 @@ function startVideoBackground(urls) {
 
   videoBackground.on("error", function(e){
     console.log(e.target.error)
-    if(e.target.error.code != 4) { // DEMUXER_ERROR_NO_SUPPORTED_STREAMS
+    setTimeout(function() {
       var r = urls[Math.floor(Math.random()*urls.length)];
       videoBackground.attr("src", r);
-    }
+    }, 1000);
   })
 
   // force reset every 30 mins
   setInterval(function(){
+    console.log("forced video reset")
     var r = urls[Math.floor(Math.random()*urls.length)];
     videoBackground.attr("src", r);
   }, 1000 * 60 * 30);
